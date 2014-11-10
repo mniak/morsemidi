@@ -30,3 +30,4 @@ class MorseMidiTranslator():
         };
 
     def Translate(string text):
+        for ch in text:
