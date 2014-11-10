@@ -29,5 +29,12 @@ class Morse():
             'z': '',
         };
 
-    def Translate(string text):
+    def Translate(self, string text):
+        result = ''
         for ch in text:
+            try:
+                result += self.table[ch]
+            except KeyError:
+                # Ignore letter not in the table
+                pass
+        return result
