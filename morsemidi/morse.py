@@ -6,35 +6,33 @@ class Morse():
             'c': '-.-.',
             'd': '-..',
             'e': '.',
-            'f': '',
+            'f': '..-.',
             'g': '--.',
             'h': '....',
             'i': '..',
             'j': '.---',
             'k': '-.-',
-            'l': '',
+            'l': '.-..',
             'm': '--',
-            'n': '',
+            'n': '-.',
             'o': '---',
-            'p': '',
-            'q': '...-',
+            'p': '.--.',
+            'q': '--.-',
             'r': '.-.',
             's': '...',
-            't': '',
-            'u': '',
-            'v': '',
-            'w': '',
+            't': '-',
+            'u': '..-',
+            'v': '...-',
+            'w': '.--',
             'x': '-..-',
-            'y': '',
-            'z': '',
+            'y': '-.--',
+            'z': '--..',
         };
 
-    def Translate(self, string text):
-        result = ''
-        for ch in text:
-            try:
-                result += self.table[ch]
-            except KeyError:
-                # Ignore letter not in the table
-                pass
-        return result
+    def translate(self, text):
+        if len(text) > 1:
+            return ';'.join((','.join((self.translate(l) for l in w)) for w in text.split()))
+        elif self.table.has_key(text):
+            return self.table[text]
+        else:
+            return ''

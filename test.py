@@ -1,5 +1,7 @@
 import unittest
-import morse
+
+from morsemidi.test import morse
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromModule(morse)
