@@ -2,7 +2,7 @@ import unittest
 
 from .. import morse
 
-class Morse(unittest.TestCase):
+class MorseTestCase(unittest.TestCase):
 
     def setUp(self):
         self.morse = morse.Morse()
@@ -53,3 +53,5 @@ class Morse(unittest.TestCase):
         morse2 = '.-'
         self.assertEquals(morse1, morse2, 'Morse char translation "a"')
 
+if __name__ == '__main__':
+    unittest.main()

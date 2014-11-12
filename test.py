@@ -1,9 +1,11 @@
 import unittest
 
-from morsemidi.test import morse
-
+from morsemidi.test import morse, midi
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromModule(morse)
-    runner = unittest.TextTestRunner()
-    runner.runsuite
+    modules = [morse, midi]
+
+    suite = unittest.TestSuite()
+    for module in modules:
+        suite.addTest(unittest.defaultTestLoader.loadTestsFromModule(module))
+    unittest.TextTestRunner().run(suite)
