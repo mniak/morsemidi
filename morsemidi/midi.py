@@ -14,10 +14,10 @@ class VLQ():
     @staticmethod
     def numberToBytes(num):
         lst = []
-        primeiro = True
+        first = True
         while num > 0:
-            lst.insert(0, (num & 0x7F) | (0x80 if not primeiro else 0x00))
+            lst.insert(0, (num & 0x7F) | (0x80 if not first else 0x00))
             num >>= 7
-            primeiro = False
+            first = False
 
         return b''.join([chr(x) for x in lst]).rjust(4, '\x00')[-4:]
