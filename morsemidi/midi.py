@@ -1,6 +1,3 @@
-class MIDI():
-    pass
-
 class VLQ():
     def __init__(self, input):
         self.num = input
